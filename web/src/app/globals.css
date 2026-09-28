@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --foreground: #111111;
+  --muted: #646464;
+  --border: #e4e4e4;
+  --brand: #111111;
+  --brand-dark: #000000;
+  --accent: #fdcb08;
+  --accent-light: #f7ecd0;
+  --success: #218552;
+  --warning: #a85e18;
+  --danger: #a23b32;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+}
+
+@font-face {
+  font-family: "Charmelade Demo";
+  src: url("/fonts/charmelade-demo.subset.woff2") format("woff2");
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-wordmark {
+  font-family: "Charmelade Demo", cursive;
+}
+
+.wild-navbar-glass {
+  background: linear-gradient(115deg, rgba(34, 34, 34, 0.55), rgba(5, 5, 5, 0.62) 52%, rgba(24, 24, 24, 0.5));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 12px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.wild-nav-link {
+  position: relative;
+  display: inline-flex;
+  padding-block: 0.6rem;
+  transition: color 180ms ease;
+}
+
+.wild-nav-link::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.1rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: #fdcb08;
+  opacity: 0;
+  transform: translate(-50%, 0.35rem) scale(0);
+  transition: 180ms ease;
+}
+
+.wild-nav-link:hover {
+  color: #fdcb08;
+}
+
+.wild-nav-link:hover::before {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #fdcb08;
+  color: #000000;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  outline-color: var(--brand);
+}
+
+.font-display {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.025em;
+}
+
+.booking-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgb(0 0 0 / 7%);
+}
+
+.soft-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 5%);
+}
+
+.section-kicker {
+  color: var(--brand);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.forest-pattern {
+  background-color: #0b0b0b;
+  background-image:
+    radial-gradient(circle at 78% 24%, rgb(253 203 8 / 42%) 0 10%, transparent 11%),
+    linear-gradient(135deg, rgb(255 255 255 / 7%) 25%, transparent 25%),
+    linear-gradient(225deg, rgb(255 255 255 / 5%) 20%, transparent 20%),
+    linear-gradient(35deg, #000000, #252525 56%, #0a0a0a);
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-breathe {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(238, 139, 46, 0.45), 0 10px 26px rgba(17, 17, 17, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(238, 139, 46, 0), 0 10px 26px rgba(17, 17, 17, 0.2);
+  }
+}
+
+.glow-ring {
+  animation: glow-breathe 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-ring {
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(238, 139, 46, 0.35), 0 10px 26px rgba(17, 17, 17, 0.2);
+  }
+}
+
+@keyframes cart-bump {
+  0% { scale: 1; }
+  35% { scale: 1.08; }
+  70% { scale: 0.97; }
+  100% { scale: 1; }
+}
+
+@keyframes cart-item-in {
+  0% { opacity: 0; transform: translateY(10px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cart-bump {
+  animation: cart-bump 420ms ease-out;
+}
+
+.cart-item-in {
+  animation: cart-item-in 300ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-bump,
+  .cart-item-in {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-card {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

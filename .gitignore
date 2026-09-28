@@ -1,0 +1,28 @@
+# Local tools and generated document previews
+.claude/
+.docx_qa/
+
+# Environment files and credentials
+**/.env
+**/.env.*
+
+# JavaScript dependencies and build output
+**/node_modules/
+**/.next/
+**/out/
+**/build/
+**/coverage/
+*.tsbuildinfo
+
+# Python environments and generated files
+**/.venv/
+**/__pycache__/
+*.py[cod]
+scraper/logs/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+~$*.docx
